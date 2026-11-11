@@ -488,7 +488,7 @@ footer {
         </div>
 
         <audio id="song" loop>
-            <source src="song.mp3" type="audio/mpeg">
+            <source src="song.mp3.mpeg" type="audio/mpeg">
         </audio>
 
         <button onclick="toggleMusic()" id="musicButton">
@@ -496,7 +496,7 @@ footer {
         </button>
 
         <p style="font-size:12px;color:#ffc5dd">
-            Add your song as song.mp3 in this folder.
+            The song file is song.mp3.mpeg in this folder.
         </p>
 
     </div>
@@ -819,7 +819,7 @@ function toggleMusic(){
 
         }).catch(()=>{
 
-            alert("Please add song.mp3 to your website folder.");
+            alert("Please check that song.mp3.mpeg exists in your website folder.");
 
         });
 
