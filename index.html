@@ -1,0 +1,937 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forever Yours ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    background: linear-gradient(135deg,#190b20,#3d102c,#190b20);
+    color: white;
+    font-family: Poppins,sans-serif;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+section {
+    padding: 90px 18px;
+    position: relative;
+}
+
+h1,h2 {
+    font-family: 'Great Vibes',cursive;
+}
+
+h1 {
+    font-size: clamp(3rem,9vw,6rem);
+    color: #ffb4d0;
+    text-shadow: 0 0 25px #ff287e;
+}
+
+h2 {
+    font-size: clamp(2.5rem,7vw,4rem);
+    color: #ff9ec5;
+}
+
+p { line-height: 1.9; }
+
+button {
+    border: none;
+    padding: 15px 28px;
+    border-radius: 40px;
+    background: linear-gradient(45deg,#ff2778,#ff8bb5);
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    margin: 10px;
+    box-shadow: 0 0 20px #ff277877;
+    transition: .3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 35px #ff2777;
+}
+
+.glass {
+    background: rgba(255,255,255,.08);
+    border: 1px solid #ffffff30;
+    border-radius: 25px;
+    padding: 30px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 40px #0004;
+    max-width: 850px;
+    margin: 25px auto;
+}
+
+/* WELCOME */
+
+#home {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.subtitle {
+    color: #ffd5e5;
+    letter-spacing: 3px;
+    margin: 20px;
+}
+
+.glow-heart {
+    font-size: 90px;
+    animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+    0%,100% { transform: scale(1); }
+    20% { transform: scale(1.25); }
+    40% { transform: scale(1); }
+    60% { transform: scale(1.15); }
+}
+
+/* FLOATING HEARTS */
+
+.floating-heart {
+    position: fixed;
+    bottom: -50px;
+    pointer-events: none;
+    z-index: 5;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-115vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* CORNER LOVE */
+
+.corner-love {
+    position: fixed;
+    z-index: 10;
+    color: #ff9ac4;
+    font-size: 11px;
+    font-weight: bold;
+    white-space: nowrap;
+    text-shadow: 0 0 10px #ff1681;
+    animation: cornerGlow 2s infinite alternate;
+}
+
+.top-left { top: 12px; left: 10px; }
+.top-right { top: 12px; right: 10px; }
+.bottom-left { bottom: 12px; left: 10px; }
+.bottom-right { bottom: 12px; right: 10px; }
+
+@keyframes cornerGlow {
+    from { opacity: .45; }
+    to { opacity: 1; }
+}
+
+/* LOVE LETTER */
+
+.letter {
+    font-family: 'Dancing Script',cursive;
+    font-size: 23px;
+    color: #ffe4ef;
+    text-align: left;
+    line-height: 2;
+}
+
+.signature {
+    font-family: 'Great Vibes',cursive;
+    font-size: 42px;
+    color: #ff91bd;
+    text-align: right;
+    margin-top: 25px;
+}
+
+/* BOW AND ARROW */
+
+#game {
+    overflow: hidden;
+}
+
+.bow-area {
+    position: relative;
+    height: 240px;
+    max-width: 600px;
+    margin: 25px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 25px;
+    background: #ffffff0b;
+    padding: 15px;
+}
+
+.bow {
+    font-size: 95px;
+    transform: rotate(-20deg);
+    filter: drop-shadow(0 0 15px #ff5d9d);
+}
+
+.target {
+    font-size: 75px;
+    animation: heartbeat 1s infinite;
+}
+
+#arrow {
+    position: absolute;
+    left: 105px;
+    top: 105px;
+    font-size: 55px;
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+    z-index: 2;
+}
+
+#arrow:active { cursor: grabbing; }
+
+#shotMessage {
+    color: #ffc4dd;
+    font-size: 20px;
+    min-height: 60px;
+    margin: 15px;
+}
+
+/* LYRICS */
+
+.lyrics {
+    font-family: 'Dancing Script',cursive;
+    font-size: 24px;
+    line-height: 2.1;
+    color: #ffd2e5;
+}
+
+.lyrics span {
+    display: block;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: .8s;
+}
+
+.lyrics span.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* MUSIC */
+
+.music-box {
+    padding: 25px;
+}
+
+.disc {
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle,#ffbdd6 0 10%,#a20d50 12% 45%,#240c23 47%);
+    border-radius: 50%;
+    margin: 20px auto;
+    animation: spin 4s linear infinite;
+    animation-play-state: paused;
+}
+
+.disc.playing { animation-play-state: running; }
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.visualizer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    height: 50px;
+}
+
+.visualizer i {
+    width: 6px;
+    height: 12px;
+    background: #ff80b4;
+    border-radius: 10px;
+    animation: wave .6s infinite alternate;
+}
+
+.visualizer i:nth-child(2n) { animation-delay: .3s; }
+.visualizer i:nth-child(3n) { animation-delay: .5s; }
+
+@keyframes wave {
+    to { height: 45px; }
+}
+
+/* MILLION LOVE GRID */
+
+.love-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(175px,1fr));
+    gap: 9px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 15px;
+}
+
+.love-cell {
+    background: #ff5c9630;
+    border: 1px solid #ffb4d055;
+    padding: 10px 5px;
+    border-radius: 12px;
+    font-size: 11px;
+    color: #ffd9e9;
+    animation: cellGlow 2s infinite alternate;
+}
+
+@keyframes cellGlow {
+    to { box-shadow: 0 0 12px #ff4c91; }
+}
+
+/* FINAL SECRET */
+
+#secret {
+    display: none;
+    animation: reveal 1.5s ease;
+}
+
+@keyframes reveal {
+    from { opacity: 0; transform: scale(.6); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.secret-text {
+    font-family: 'Great Vibes',cursive;
+    font-size: clamp(2.5rem,7vw,4rem);
+    color: #ffb2d0;
+    text-shadow: 0 0 20px #ff267e;
+}
+
+footer {
+    padding: 35px 10px 90px;
+    color: #ffb3d0;
+}
+
+@media(max-width:500px) {
+    .corner-love { font-size: 8px; }
+    .bow { font-size: 65px; }
+    .target { font-size: 55px; }
+    #arrow { left: 75px; }
+    .glass { padding: 20px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="corner-love top-left">I LOVE YOU MY WIFE ❤️</div>
+<div class="corner-love top-right">FOREVER YOURS 💍</div>
+<div class="corner-love bottom-left">MY HEART IS YOURS 💗</div>
+<div class="corner-love bottom-right">INFINITY LOVE ♾️</div>
+
+<!-- WELCOME -->
+
+<section id="home">
+
+    <div class="glow-heart">❤️</div>
+
+    <h1>My Beautiful Wifey</h1>
+
+    <p class="subtitle">
+        A LITTLE UNIVERSE CREATED JUST FOR YOU
+    </p>
+
+    <h2>Letter From Your Husband ❤️</h2>
+
+    <p style="margin:20px;color:#ffd3e4">
+        Every heartbeat of mine has a name...
+        and that name is YOU.
+    </p>
+
+    <button onclick="document.getElementById('letter').scrollIntoView()">
+        Open Your Love Letter 💌
+    </button>
+
+    <p style="margin-top:35px">Scroll down, my love ↓</p>
+
+</section>
+
+<!-- LOVE LETTER -->
+
+<section id="letter">
+
+    <h2>To My Wife ❤️</h2>
+
+    <div class="glass letter">
+
+        My dearest Mummy, Mumma, my Wiffeyyyy,
+        my Bangaraaaaa ❤️
+
+        <br><br>
+
+        I don't know whether words can ever explain
+        how much you mean to me. But today, I wanted
+        to create something special just for you.
+
+        <br><br>
+
+        You are not just a person in my life.
+        You are my happiness, my favourite thought,
+        my sweetest dream and my forever destination.
+
+        <br><br>
+
+        Even on ordinary days, you make my world
+        feel extraordinary. Your smile is my favourite
+        sight, your voice is my favourite music,
+        and your love is my greatest blessing.
+
+        <br><br>
+
+        I may not always be perfect.
+        Sometimes I may make mistakes, sometimes
+        I may struggle to express what I feel.
+        But one thing will never change:
+
+        <br><br>
+
+        I CHOOSE YOU. TODAY, TOMORROW
+        AND FOR EVERY LIFETIME. ❤️
+
+        <br><br>
+
+        I want to grow with you, laugh with you,
+        travel with you, fight for our dreams,
+        hold your hands through difficult days
+        and make millions of beautiful memories.
+
+        <br><br>
+
+        If I had to choose again, among billions
+        of people, I would still search for YOU.
+
+        <div class="signature">
+            Forever Your Husband ❤️
+        </div>
+
+    </div>
+
+</section>
+
+<!-- BOW AND ARROW -->
+
+<section id="game">
+
+    <h2>Take My Heart, My Love 🏹</h2>
+
+    <p style="margin:15px">
+        Drag the arrow towards your heart and release it.
+    </p>
+
+    <div class="glass">
+
+        <div class="bow-area" id="bowArea">
+
+            <div class="bow">🏹</div>
+
+            <div class="target" id="target">❤️</div>
+
+            <div id="arrow">➤</div>
+
+        </div>
+
+        <div id="shotMessage">
+            My heart is waiting for you, Wifeyyy ❤️
+        </div>
+
+        <button onclick="resetArrow()">Try Again 💘</button>
+
+    </div>
+
+</section>
+
+<!-- MUSIC -->
+
+<section id="music">
+
+    <h2>Our Love Song 🎵</h2>
+
+    <div class="glass music-box">
+
+        <div class="disc" id="disc"></div>
+
+        <h3>Just For You, My Love ❤️</h3>
+
+        <p style="color:#ffc5dd;margin:15px">
+            Every melody reminds me of you.
+        </p>
+
+        <div class="visualizer">
+            <i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i>
+        </div>
+
+        <audio id="song" loop>
+            <source src="song.mp3" type="audio/mpeg">
+        </audio>
+
+        <button onclick="toggleMusic()" id="musicButton">
+            ▶ Play Our Song
+        </button>
+
+        <p style="font-size:12px;color:#ffc5dd">
+            Add your song as song.mp3 in this folder.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- KANNADA LYRICS -->
+
+<section id="heart">
+
+    <h2>My Heart Says ❤️</h2>
+
+    <p style="margin:20px;color:#ffd5e7">
+        These words remind me of you, Bangaraaaa...
+    </p>
+
+    <button onclick="showLyrics()">
+        ❤️ My Heart Says...
+    </button>
+
+    <div class="glass lyrics" id="lyrics">
+
+        <span>ದಿನವೆಲ್ಲ ನಂಗೆ ನಿಂದೆ ಯೋಚನೆ</span>
+        <span>ಬರ ಬಂದ ಗಾಳಿನಲ್ಲಿ</span>
+        <span>ಮಳೆ ಮೋಡದಂತೆ ಬಂದೆ</span>
+        <span>ಸ್ವರ ನಿಂತ ಹೂವಿನಲ್ಲಿ</span>
+        <span>ವೀಣೆ ನುಡಿಸುತ್ತ ನಿಂತೇ..</span>
+
+        <br>
+
+        <span>ನನ್ನೆದೆಯ ಕತ್ತಲೆಗೊಂದು</span>
+        <span>ಮಿನುಗೋ ಮೊಂಬತ್ತಿ ಆದೆ</span>
+        <span>ಏಕಾಂಗಿ ಯಾನದಲ್ಲಿ</span>
+        <span>ನಿಂತೇ ನನ್ನ ಹಿಂದೆ</span>
+
+        <br>
+
+        <span>ನಿನ್ನಿಂದ ಎಷ್ಟೆಲ್ಲಾ ಆನಂದ</span>
+        <span>ಏನೆಲ್ಲಾ ಆಹ್ವಾನ</span>
+        <span>ನೀನೆ ಸೌಗಂಧ</span>
+        <span>ಈ ಕಣ್ಣ ಕಾಡಿಗೆಯ ಮಿನ್ಚಲ್ಲಿ</span>
+        <span>ಇನ್ನಷ್ಟು ನೀಡು ಅನುರಾಗದ ಉನ್ಮಾದ</span>
+
+        <br>
+
+        <span>ಕೇಸರಿಯ ರಂಗು ನಿನ್ನ ಸಂಘವು</span>
+        <span>ನಿಂತು ನೆನೆಯೋಣ ಬಾ ಹೂಗಳ ಸೋನೆ</span>
+        <span>ದಿನವೆಲ್ಲ ನಂಗೆ ನಿಂದೆ ಯೋಚನೆ</span>
+        <span>ಏನೋ ಆಗಿದೆ ನಂಗೆ ವಿವರಿಸು ನೀನೆ</span>
+
+    </div>
+
+</section>
+
+<!-- ONE MILLION LOVE MESSAGES -->
+
+<section id="million">
+
+    <h2>One Million Reasons To Love You ❤️</h2>
+
+    <p style="margin:15px;color:#ffd5e7">
+        One million messages. One heart. Only YOU.
+    </p>
+
+    <div class="glass">
+
+        <h3 style="color:#ffb5d3">
+            1,000,000 ❤️
+        </h3>
+
+        <p id="pageNumber">Messages 1–500 of 1,000,000</p>
+
+        <div class="love-grid" id="loveGrid"></div>
+
+        <button onclick="changePage(-1)">← Previous</button>
+        <button onclick="changePage(1)">Next →</button>
+
+        <p style="font-size:12px;color:#ffb5d3">
+            1,000 pages of 1,000 love messages.
+            Every message is meant for you.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- SECRET LOVE VAULT -->
+
+<section id="vault">
+
+    <h2>One Last Surprise 💝</h2>
+
+    <div class="glass">
+
+        <div class="glow-heart">💗</div>
+
+        <p style="margin:20px">
+            There is something my heart has been
+            waiting to tell you...
+        </p>
+
+        <button onclick="revealSecret()">
+            Open My Heart 🔐❤️
+        </button>
+
+        <div id="secret">
+
+            <br>
+
+            <div class="secret-text">
+                I LOVE YOU MORE THAN WORDS CAN EVER SAY!
+            </div>
+
+            <p style="margin:20px;color:#ffd5e5">
+                My Mummy, My Mumma, My Wifeyyyy,
+                My Bangaraaaaa...
+
+                <br><br>
+
+                You are my today, my tomorrow,
+                my every beautiful forever.
+
+                <br><br>
+
+                No matter how many times I say
+                I LOVE YOU, it will never be enough.
+
+                <br><br>
+
+                So here is my promise:
+
+                <br>
+
+                A million I LOVE YOUs,
+                a billion hugs,
+                and an eternity of choosing YOU.
+
+                <br><br>
+
+                WILL YOU KEEP BEING MY FOREVER? ❤️
+
+            </p>
+
+            <h1 style="font-size:55px">I LOVE YOU! ❤️</h1>
+
+            <button onclick="celebrate()">
+                I LOVE YOU TOO, HUBBY! 💋
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    <h2>Forever & Always ❤️</h2>
+    Made with a million heartbeats by your husband.
+    <br>
+    One love. Two hearts. One lifetime. ♾️
+</footer>
+
+<script>
+
+// FLOATING HEARTS
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "floating-heart";
+
+    heart.innerHTML = ["❤️","💗","💕","💖","🌹","💘"][
+        Math.floor(Math.random()*6)
+    ];
+
+    heart.style.left = Math.random()*100 + "vw";
+
+    heart.style.fontSize = (15+Math.random()*25)+"px";
+
+    heart.style.animationDuration = (4+Math.random()*5)+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>heart.remove(),9000);
+}
+
+setInterval(createHeart,350);
+
+
+// HEART TAP
+
+document.addEventListener("click",e=>{
+
+    if(e.target.closest("button") ||
+       e.target.closest("#arrow")) return;
+
+    const h=document.createElement("div");
+
+    h.innerHTML="💗";
+
+    h.style.position="fixed";
+    h.style.left=e.clientX+"px";
+    h.style.top=e.clientY+"px";
+    h.style.pointerEvents="none";
+    h.style.zIndex="9999";
+    h.style.fontSize="28px";
+    h.style.transition="1s";
+
+    document.body.appendChild(h);
+
+    requestAnimationFrame(()=>{
+        h.style.transform="translateY(-80px) scale(2)";
+        h.style.opacity="0";
+    });
+
+    setTimeout(()=>h.remove(),1000);
+});
+
+
+// BOW AND ARROW DRAG SHOOT
+
+const arrow=document.getElementById("arrow");
+const area=document.getElementById("bowArea");
+const target=document.getElementById("target");
+
+let dragging=false;
+let startX=0;
+let startY=0;
+
+arrow.addEventListener("pointerdown",e=>{
+
+    dragging=true;
+
+    const r=arrow.getBoundingClientRect();
+
+    startX=e.clientX-r.left;
+    startY=e.clientY-r.top;
+
+    arrow.setPointerCapture(e.pointerId);
+
+});
+
+arrow.addEventListener("pointermove",e=>{
+
+    if(!dragging)return;
+
+    const r=area.getBoundingClientRect();
+
+    const x=e.clientX-r.left-startX;
+    const y=e.clientY-r.top-startY;
+
+    arrow.style.left=Math.max(0,Math.min(x,r.width-55))+"px";
+    arrow.style.top=Math.max(0,Math.min(y,r.height-55))+"px";
+
+});
+
+arrow.addEventListener("pointerup",()=>{
+
+    if(!dragging)return;
+
+    dragging=false;
+
+    const targetRect=target.getBoundingClientRect();
+    const arrowRect=arrow.getBoundingClientRect();
+
+    const dx=(targetRect.left+targetRect.width/2)-
+             (arrowRect.left+arrowRect.width/2);
+
+    const dy=(targetRect.top+targetRect.height/2)-
+             (arrowRect.top+arrowRect.height/2);
+
+    arrow.style.transition="transform .65s ease-in";
+
+    arrow.style.transform=`translate(${dx}px,${dy}px) rotate(0deg)`;
+
+    setTimeout(()=>{
+
+        document.getElementById("shotMessage").innerHTML=
+        "BULLSEYE! 💘 YOU HAVE CAPTURED MY HEART FOREVER! ❤️";
+
+        target.innerHTML="💖";
+
+        celebrate();
+
+    },650);
+
+});
+
+function resetArrow(){
+
+    arrow.style.transition="none";
+    arrow.style.transform="none";
+    arrow.style.left="105px";
+    arrow.style.top="105px";
+
+    target.innerHTML="❤️";
+
+    document.getElementById("shotMessage").innerHTML=
+    "My heart is waiting for you, Wifeyyy ❤️";
+
+}
+
+
+// MUSIC PLAYER
+
+const song=document.getElementById("song");
+
+function toggleMusic(){
+
+    const disc=document.getElementById("disc");
+    const btn=document.getElementById("musicButton");
+
+    if(song.paused){
+
+        song.play().then(()=>{
+
+            disc.classList.add("playing");
+            btn.innerHTML="❚❚ Pause Our Song";
+
+        }).catch(()=>{
+
+            alert("Please add song.mp3 to your website folder.");
+
+        });
+
+    }else{
+
+        song.pause();
+        disc.classList.remove("playing");
+        btn.innerHTML="▶ Play Our Song";
+
+    }
+
+}
+
+
+// KANNADA LYRICS ANIMATION
+
+function showLyrics(){
+
+    const lines=document.querySelectorAll("#lyrics span");
+
+    lines.forEach(line=>line.classList.remove("show"));
+
+    lines.forEach((line,index)=>{
+
+        setTimeout(()=>{
+            line.classList.add("show");
+        },index*700);
+
+    });
+
+}
+
+
+// ONE MILLION LOVE GRID
+
+const total=1000000;
+const perPage=500;
+let currentPage=0;
+
+function renderGrid(){
+
+    const grid=document.getElementById("loveGrid");
+
+    grid.innerHTML="";
+
+    const start=currentPage*perPage;
+
+    const end=Math.min(start+perPage,total);
+
+    for(let i=start;i<end;i++){
+
+        const cell=document.createElement("div");
+
+        cell.className="love-cell";
+
+        cell.innerText="I love you my dear wife ❤️";
+
+        grid.appendChild(cell);
+
+    }
+
+    document.getElementById("pageNumber").innerText=
+    `Messages ${start+1}–${end} of 1,000,000`;
+
+}
+
+function changePage(direction){
+
+    currentPage=Math.max(
+        0,
+        Math.min(Math.ceil(total/perPage)-1,currentPage+direction)
+    );
+
+    renderGrid();
+
+}
+
+renderGrid();
+
+
+// SECRET VAULT
+
+function revealSecret(){
+
+    const secret=document.getElementById("secret");
+
+    secret.style.display="block";
+
+    secret.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+    celebrate();
+
+}
+
+
+// CELEBRATION
+
+function celebrate(){
+
+    for(let i=0;i<35;i++){
+
+        setTimeout(createHeart,i*70);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
