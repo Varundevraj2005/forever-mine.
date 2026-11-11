@@ -234,7 +234,51 @@ button:hover {
     opacity: 1;
     transform: translateY(0);
 }
-  
+
+/* MUSIC */
+
+.music-box {
+    padding: 25px;
+}
+
+.disc {
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle,#ffbdd6 0 10%,#a20d50 12% 45%,#240c23 47%);
+    border-radius: 50%;
+    margin: 20px auto;
+    animation: spin 4s linear infinite;
+    animation-play-state: paused;
+}
+
+.disc.playing { animation-play-state: running; }
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.visualizer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    height: 50px;
+}
+
+.visualizer i {
+    width: 6px;
+    height: 12px;
+    background: #ff80b4;
+    border-radius: 10px;
+    animation: wave .6s infinite alternate;
+}
+
+.visualizer i:nth-child(2n) { animation-delay: .3s; }
+.visualizer i:nth-child(3n) { animation-delay: .5s; }
+
+@keyframes wave {
+    to { height: 45px; }
+}
 
 /* MILLION LOVE GRID */
 
@@ -445,7 +489,7 @@ footer {
         </div>
 
         <audio id="song" loop>
-            <source src="song.mp3" type="audio/mpeg">
+            <source src="song.mp3.mpeg" type="audio/mpeg">
         </audio>
 
         <button onclick="toggleMusic()" id="musicButton">
